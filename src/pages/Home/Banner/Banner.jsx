@@ -7,7 +7,7 @@ import { Carousel } from "react-responsive-carousel";
 import { FaArrowRight} from "react-icons/fa6";
 const Banner = () => {
   return (
-    <Carousel autoPlay={true} infiniteLoop={true} className="mx-10 ">
+    <Carousel autoPlay={true} infiniteLoop={true} >
       <div className="relative">
         <img src={Banner1} />
 
