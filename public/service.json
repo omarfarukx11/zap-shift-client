@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Express & Standard Delivery",
+    "description": "We deliver parcels within 24–72 hours in Dhaka, Chattogram, Sylhet, Khulna, and Rajshahi. Express delivery available in Dhaka within 4–6 hours.",
+    "icon": "express_icon"
+  },
+  {
+    "title": "Nationwide Delivery",
+    "description": "We deliver parcels nationwide with home delivery in every district, ensuring your products reach customers within 48–72 hours.",
+    "icon": "nationwide_icon"
+  },
+  {
+    "title": "Fulfillment Solution",
+    "description": "We offer automated warehouse services with inventory management support, order processing, packaging, and after-sales support.",
+    "icon": "fulfillment_icon"
+  },
+  {
+    "title": "Cash on Home Delivery",
+    "description": "100% cash-on-delivery anywhere in Bangladesh with guaranteed safety of your product.",
+    "icon": "cod_home_icon"
+  },
+  {
+    "title": "Corporate Service / Contract Logistics",
+    "description": "Customized corporate services including warehouse and inventory management support.",
+    "icon": "corporate_service_icon"
+  },
+  {
+    "title": "Parcel Return",
+    "description": "Through our reverse logistics service, you allow customers to return or exchange products easily.",
+    "icon": "return_icon"
+  }
+]
