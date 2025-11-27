@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { FaArrowRight } from "react-icons/fa6";
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(-1);
@@ -40,14 +41,12 @@ const FAQ = () => {
                 className={`cursor-pointer rounded-lg border shadow-sm transition-colors duration-300 
                   ${
                     isOpen
-                      ? "bg-lime-50 border-lime-300"
+                      ? "bg-[#C3DFE2] border-[#2B8282]"
                       : "bg-white border-gray-200"
                   }`}
               >
                 <div className="flex items-center justify-between px-5 py-4">
-                  <h3 className="text-lg font-medium text-gray-800">
-                    {faq.question}
-                  </h3>
+                  <h3 className="text-xl font-semibold">{faq.question}</h3>
                   <span
                     className={`transition-transform duration-300 ${
                       isOpen ? "rotate-90" : "rotate-0"
@@ -68,24 +67,15 @@ const FAQ = () => {
           })}
         </div>
 
-
         <div className="flex justify-center">
-          <button className="btn bg-lime-300 hover:bg-lime-400 text-gray-800 border-none rounded-full px-8 gap-2">
-            See More FAQ&apos;s
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M7 17L17 7M17 7H7M17 7v10"
-              />
-            </svg>
-          </button>
+          <div className="flex items-center justify-center">
+            <button className="btn bg-primary text-xl font-bold p-8 rounded-xl ">
+              See More FAQ’s
+            </button>
+            <span className="bg-black p-6 rounded-[50%] text-primary -rotate-45">
+              <FaArrowRight className="text-2xl" />
+            </span>
+          </div>
         </div>
       </div>
     </div>
