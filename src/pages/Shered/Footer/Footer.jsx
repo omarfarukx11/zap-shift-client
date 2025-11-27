@@ -30,7 +30,7 @@ const Footer = () => {
   );
 
   return (
-    <footer className="footer footer-horizontal footer-center bg-black text-primary-content p-10">
+    <footer className="footer footer-horizontal footer-center bg-black text-primary-content p-10 rounded-2xl">
       <aside>
         <div className="flex items-center">
           <img src={Logo} alt="" />

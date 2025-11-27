@@ -20,7 +20,7 @@ const Banner = () => {
               <FaArrowRight className="font-bold text-2xl" />
             </span>
           </div>
-          <button className="btn bg-primary-content text-xl py-6 text-gray-500">
+          <button className="btn bg-primary-content text-xl py-6 text-gray-500 border-none rounded-2xl">
             Be A Rider
           </button>
           
@@ -38,7 +38,7 @@ const Banner = () => {
               <FaArrowRight className="font-bold text-2xl" />
             </span>
           </div>
-          <button className="btn bg-primary-content text-xl py-6 text-gray-500">
+          <button className="btn bg-primary-content text-xl py-6 text-gray-500 border-none rounded-2xl">
             Be A Rider
           </button>
           
@@ -55,7 +55,7 @@ const Banner = () => {
               <FaArrowRight className="font-bold text-2xl" />
             </span>
           </div>
-          <button className="btn bg-primary-content text-xl py-6 text-gray-500">
+          <button className="btn bg-primary-content text-xl py-6 text-gray-500 border-none rounded-2xl ">
             Be A Rider
           </button>
           

@@ -3,9 +3,12 @@ import Banner from '../Banner/Banner';
 import HowWork from '../HowIt\'sWork/HowWork';
 import Service from '../Service/Service';
 import Brands from '../Brands/Brands';
-import ServiceTwo from '../ServiceTwo';
+import ServiceTwo from '../Service/ServiceTwo';
 import Divider from '../../../Components/Divider';
 import SecBanner from '../SecBanner/SecBanner';
+import Review from '../Review/Review';
+import { Fa0 } from 'react-icons/fa6';
+import FAQ from '../FAQ/FAQ';
 
 const Home = () => {
     return (
@@ -21,6 +24,8 @@ const Home = () => {
             <ServiceTwo></ServiceTwo>
             <Divider></Divider>
             <SecBanner></SecBanner>
+            <Review></Review>
+            <FAQ></FAQ>
         </div>
     );
 };
