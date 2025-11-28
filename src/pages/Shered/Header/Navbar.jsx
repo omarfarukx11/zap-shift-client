@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import Logo from "../../../assets/logo.png";
 import { FaArrowRight } from "react-icons/fa6";
 import useAuth from "../../../Hooks/useAuth";
@@ -7,10 +7,12 @@ import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const navigate = useNavigate()
 
   const handleLogOut = () => {
     logOut()
       .then(() => {
+        navigate('/')
         Swal.fire({
           position: "top-center",
           icon: "success",
@@ -102,9 +104,9 @@ const Navbar = () => {
           </Link>
         )}
         <div className="flex items-center justify-center">
-          <button className="btn bg-primary text-xl font-bold py-6 ">
+          <Link to={'rider'} className="btn bg-primary text-xl font-bold py-6 ">
             Be a rider
-          </button>
+          </Link>
           <span className="bg-black p-4 rounded-[50%] text-primary -rotate-45">
             <FaArrowRight />
           </span>

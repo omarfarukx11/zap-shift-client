@@ -1,19 +1,20 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../Hooks/useAuth";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import Swal from "sweetalert2";
 
 const Login = () => {
   const {singInUser, setUser} =useAuth()
   const navigate = useNavigate()
+  const location = useLocation()
 
   const handleSingIn = (data) => {
     singInUser(data.email , data.password)
     .then(result => {
       setUser(result.user)
-      navigate('/')
+      navigate(location?.state || "/")
        Swal.fire({
                 position: "top-center",
                 icon: "success",
@@ -59,7 +60,7 @@ const Login = () => {
             <a className="link link-hover underline">Forgot password?</a>
           </div>
           <button className="btn bg-primary mt-2">Login</button>
-          <p>Don’t have any account? <Link to={'/register'} className="text-primary font-bold text-xs">Register</Link></p>
+          <p>Don’t have any account? <Link state={location.state} to={'/register'} className="text-primary font-bold text-xs">Register</Link></p>
           
           <p className="text-center text-lg font-semibold py-2">Or</p>
 

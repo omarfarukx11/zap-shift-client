@@ -1,17 +1,19 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import useAuth from "../../../Hooks/useAuth";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
 const SocialLogin = () => {
   const { googleSingIn , setUser} = useAuth();
   const navigate = useNavigate()
+  const location = useLocation()
+
   const handleGoogleSingIn = () => {
     googleSingIn()
       .then((result) => {
         setUser(result.user);
-        navigate('/')
+        navigate(location?.state || '/')
          Swal.fire({
           position: "top-center",
           icon: "success",
