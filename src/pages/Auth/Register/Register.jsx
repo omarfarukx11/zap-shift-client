@@ -2,7 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../Hooks/useAuth";
 import { Link, useNavigate } from "react-router";
-import { FcGoogle } from "react-icons/fc";
+import SocialLogin from "../SocialLogin/SocialLogin";
+import Swal from "sweetalert2";
 
 const Register = () => {
     const {registerUser, setUser} = useAuth()
@@ -22,6 +23,13 @@ const Register = () => {
       .then(res => {
         setUser(res.user)
         navigate('/')
+         Swal.fire({
+                  position: "top-center",
+                  icon: "success",
+                  title: "login Success",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
       })
       .catch(error => console.log(error))
     }
@@ -62,11 +70,7 @@ const Register = () => {
            <p>Already have an account?<Link to={'/login'} className="text-primary font-bold text-xs">Login</Link></p>
           
           <p className="text-center text-lg font-semibold py-2">Or</p>
-
-          <button className="btn bg-base-200 text-black border-[#e5e5e5]">
-            <FcGoogle />
-            Login with Google
-          </button>
+          <SocialLogin></SocialLogin>
         </fieldset>
       </form>
       </div>

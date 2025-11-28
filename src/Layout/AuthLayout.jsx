@@ -10,7 +10,7 @@ const AuthLayout = () => {
                 <Logo></Logo>
             </div>
 
-            <div className='flex justify-between h-[600px] border-2'>
+            <div className='flex justify-between h-[600px]'>
                 <div className='flex-1 py-10'>
                 <Outlet></Outlet>
                 </div>

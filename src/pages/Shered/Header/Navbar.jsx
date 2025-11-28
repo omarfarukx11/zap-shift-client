@@ -2,8 +2,26 @@ import React from "react";
 import { Link, NavLink } from "react-router";
 import Logo from "../../../assets/logo.png";
 import { FaArrowRight } from "react-icons/fa6";
+import useAuth from "../../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+  const { user, logOut } = useAuth();
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "LogOut Success",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => console.log(error));
+  };
+
   const links = (
     <>
       <li>
@@ -55,7 +73,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <Link to={'/'}>
+        <Link to={"/"}>
           <div className="flex items-center">
             <img src={Logo} alt="" />
             <p className="text-[32px] relative top-[6px] right-[16px] font-extrabold ">
@@ -68,10 +86,21 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1 text-lg">{links}</ul>
       </div>
       <div className="navbar-end space-x-5 ">
-
-        <Link to={'/login'} className="btn bg-primary-content text-xl py-6 text-gray-500">
-          Sign In
-        </Link>
+        {user ? (
+          <button
+            onClick={handleLogOut}
+            className="btn bg-primary-content text-xl py-6 text-gray-500"
+          >
+            Log Out
+          </button>
+        ) : (
+          <Link
+            to={"/login"}
+            className="btn bg-primary-content text-xl py-6 text-gray-500"
+          >
+            Sign In
+          </Link>
+        )}
         <div className="flex items-center justify-center">
           <button className="btn bg-primary text-xl font-bold py-6 ">
             Be a rider

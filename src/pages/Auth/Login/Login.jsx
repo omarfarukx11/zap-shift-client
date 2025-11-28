@@ -2,10 +2,11 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../Hooks/useAuth";
 import { Link, useNavigate } from "react-router";
-import { FcGoogle } from "react-icons/fc";
+import SocialLogin from "../SocialLogin/SocialLogin";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  const {singInUser,googleSingIn, setUser} =useAuth()
+  const {singInUser, setUser} =useAuth()
   const navigate = useNavigate()
 
   const handleSingIn = (data) => {
@@ -13,17 +14,18 @@ const Login = () => {
     .then(result => {
       setUser(result.user)
       navigate('/')
+       Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "login Success",
+                showConfirmButton: false,
+                timer: 1500,
+              });
     })
     .catch(error => console.log(error))
   }
   
-  const handleGoogleSingIn = () => {
-    googleSingIn()
-    .then(result => {
-      setUser(result.user)
-    })
-    .catch(error => console.log(error))
-  }
+
   
   
 
@@ -61,10 +63,7 @@ const Login = () => {
           
           <p className="text-center text-lg font-semibold py-2">Or</p>
 
-          <button onClick={handleGoogleSingIn} className="btn bg-base-200 text-black border-[#e5e5e5]">
-            <FcGoogle />
-            Login with Google
-          </button>
+          <SocialLogin></SocialLogin>
         </fieldset>
        </form>
       </div>
