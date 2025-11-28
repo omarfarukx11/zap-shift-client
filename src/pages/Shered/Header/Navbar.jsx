@@ -68,9 +68,10 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1 text-lg">{links}</ul>
       </div>
       <div className="navbar-end space-x-5 ">
-        <button className="btn bg-primary-content text-xl py-6 text-gray-500">
+
+        <Link to={'/login'} className="btn bg-primary-content text-xl py-6 text-gray-500">
           Sign In
-        </button>
+        </Link>
         <div className="flex items-center justify-center">
           <button className="btn bg-primary text-xl font-bold py-6 ">
             Be a rider
