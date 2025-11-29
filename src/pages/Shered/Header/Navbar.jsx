@@ -44,6 +44,11 @@ const Navbar = () => {
       <li>
         <NavLink>Contact</NavLink>
       </li>
+      {
+        user && <>
+          <li><NavLink to={'/dashboard/myParcels'}>My Parcels</NavLink></li>
+        </>
+      }
     </>
   );
 
@@ -85,7 +90,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 text-lg">{links}</ul>
+        <ul className="menu menu-horizontal px-1 text-lg ">{links}</ul>
       </div>
       <div className="navbar-end space-x-5 ">
         {user ? (

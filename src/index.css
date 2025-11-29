@@ -51,7 +51,7 @@
  font-family: "Urbanist", sans-serif;
 }
 
-a.active:hover {
+li:hover {
   background-color: #CAEB66;
   color: #33929D ;
 
