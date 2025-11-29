@@ -7,6 +7,7 @@ import Login from "../pages/Auth/Login/Login";
 import Register from "../pages/Auth/Register/Register";
 import PrivetRouter from "./PrivetRouter";
 import Rider from "../pages/Rider/Rider";
+import SendParcel from "../pages/SendParcel/SendParcel";
 
 
 export const router = createBrowserRouter([
@@ -25,6 +26,14 @@ export const router = createBrowserRouter([
         element:<PrivetRouter>
           <Rider></Rider>
         </PrivetRouter>
+      },
+      {
+        path:"/sendParcel",
+        element:
+        <PrivetRouter>
+          <SendParcel></SendParcel>
+        </PrivetRouter>,
+        loader:()=> fetch('/serviceCenter.json').then(res => res.json()),
       },
       {
         path:'/coverage',
