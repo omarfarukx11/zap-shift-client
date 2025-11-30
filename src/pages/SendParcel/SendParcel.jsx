@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm, useWatch } from "react-hook-form";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useAuth from "../../Hooks/useAuth";
@@ -16,6 +16,7 @@ const SendParcel = () => {
 
   const axiosSecure = useAxiosSecure()
   const {user} = useAuth()
+  const navigate = useNavigate()
 
 
 
@@ -65,8 +66,7 @@ const SendParcel = () => {
       if (result.isConfirmed) {
         axiosSecure.post('/parcels' , data)
         .then()
-
-
+        navigate('/dashboard/myParcels')
         Swal.fire({
           title: "Conform!",
           text: "Your file has been Conformed.",

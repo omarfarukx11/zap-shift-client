@@ -15,13 +15,27 @@ const Payment = () => {
         }
         
     })
+
+    // const handlePayment = async () => {
+    //   const paymentInfo = {
+    //     cost : data.cost,
+    //     parcelName : data.ParcelName,
+    //     senderEmail : data.senderEmail,
+    //     parcelId : data._id,
+    //   }
+    //   const res = await axiosSecure.post('/create-checkout-session' , paymentInfo)
+    //   window.location.assign(res.data.url)
+      
+    // }
+    
+
     if(isLoading) {
        return <p className="text-red-500">Loading</p>
     }
     return (
-        <div>
-            <h1>hello form payment</h1>
-            <p>{data?.ParcelName}</p>
+        <div className='p-20 text-center'>
+            <h1 className='pb-4 text-xl font-bold'>Pay {data.cost} Taka for {data?.ParcelName} Parcel</h1>
+            {/* <button onClick={handlePayment} className='btn bg-primary'>Pay</button> */}
         </div>
     );
 };
