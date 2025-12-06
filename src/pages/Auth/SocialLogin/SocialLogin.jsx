@@ -3,24 +3,39 @@ import { FcGoogle } from "react-icons/fc";
 import useAuth from "../../../Hooks/useAuth";
 import { useLocation, useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const SocialLogin = () => {
   const { googleSingIn , setUser} = useAuth();
   const navigate = useNavigate()
   const location = useLocation()
+  const axiosSecure = useAxiosSecure()
 
   const handleGoogleSingIn = () => {
     googleSingIn()
       .then((result) => {
         setUser(result.user);
-        navigate(location?.state || '/')
-         Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "login Success",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+        
+        const userProfile = {
+            email: result.user.email,
+            displayName: result.user.displayName,
+            photoURL: result.user.PhotoURL,
+          };
+
+          axiosSecure.post('/users' , userProfile) 
+          .then(res => {
+            console.log(res.data)
+            navigate(location?.state || '/')
+          })
+
+
+        //  Swal.fire({
+        //   position: "top-center",
+        //   icon: "success",
+        //   title: "login Success",
+        //   showConfirmButton: false,
+        //   timer: 1500,
+        // });
 
       })
       .catch((error) => console.log(error));

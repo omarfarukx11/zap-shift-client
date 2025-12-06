@@ -13,6 +13,11 @@ import Payment from "../pages/Dashboard/Payment/Payment";
 import MyParcels from "../pages/Dashboard/MyParcels/MyParcels";
 import PaymentSuccess from "../pages/Dashboard/Payment/PaymentSuccess";
 import PaymentCancelled from "../pages/Dashboard/Payment/PaymentCancelled";
+import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
+import ApproveRider from "../pages/Dashboard/ApproveRider/ApproveRider";
+import UserManagement from "../pages/Dashboard/UserManagement/UserManagement";
+import AdminRoute from "./AdminRoute";
+import AssignRider from "../pages/Dashboard/AssignRider/AssignRider";
 
 
 export const router = createBrowserRouter([
@@ -30,7 +35,8 @@ export const router = createBrowserRouter([
         path:'/rider',
         element:<PrivetRouter>
           <Rider></Rider>
-        </PrivetRouter>
+        </PrivetRouter>,
+        loader:()=> fetch('/serviceCenter.json').then(res => res.json()),
       },
       {
         path:"/sendParcel",
@@ -82,6 +88,22 @@ export const router = createBrowserRouter([
       {
         path:"/dashboard/paymentCancelled",
         Component:PaymentCancelled,
+      },
+      {
+        path:"/dashboard/paymentHistory",
+        Component:PaymentHistory,
+      },
+      {
+        path:"/dashboard/approveRider",
+        element: <AdminRoute><ApproveRider></ApproveRider></AdminRoute>
+      },
+      {
+        path:"/dashboard/userManagement",
+        element:<AdminRoute><UserManagement></UserManagement></AdminRoute>
+      },
+      {
+        path:"/dashboard/assignRider",
+        element:<AdminRoute><AssignRider></AssignRider></AdminRoute>
       },
       
     ]

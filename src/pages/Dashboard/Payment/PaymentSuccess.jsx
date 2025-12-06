@@ -8,6 +8,8 @@ const PaymentSuccess = () => {
   const axiosSecure = useAxiosSecure();
   const [paymentInfo, setPaymentInfo] = useState({});
 
+  console.log(sessionId)
+
   useEffect(() => {
     if (sessionId) {
       axiosSecure

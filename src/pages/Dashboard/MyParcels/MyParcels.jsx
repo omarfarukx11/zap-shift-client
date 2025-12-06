@@ -69,6 +69,8 @@ const MyParcels = () => {
               <th>Name</th>
               <th>Cost</th>
               <th>Payment</th>
+              <th>Delivery Status</th>
+              <th>TrackingId</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -85,6 +87,8 @@ const MyParcels = () => {
                     <button onClick={() => handlePayment(d)} className="btn btn-sm bg-primary">Pay</button>
                     }
                 </td>
+                <td>{d.deliveryStatus}</td>
+                <td>{d.trackingId}</td>
                 <td className="space-x-5">
                   <button className="btn bg-primary">
                     <HiOutlineViewGrid />

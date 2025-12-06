@@ -30,6 +30,7 @@ const Register = () => {
         }`;
         axios.post(image_API_URL, fromData).then((res) => {
           const userProfile = {
+            email: data.email,
             displayName: data.name,
             photoURL: res.data.data.url,
           };
